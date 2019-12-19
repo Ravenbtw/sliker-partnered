@@ -23,7 +23,7 @@ let slikerInterval = setInterval(() => {
     json: true
   }, (error, response, body) => {
     let currentTime = new Date();
-    let randomInt = Math.floor(Math.random() * 10);
+    let randomInt = Math.floor(Math.random() * 5);
     console.log(currentTime.getHours(), currentTime.getMinutes());
     console.log(no.length);
     console.log(randomInt);
