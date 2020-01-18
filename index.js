@@ -39,3 +39,7 @@ let slikerInterval = setInterval(() => {
     }
   });
 }, 1000*60);
+
+setInterval(() => {
+  console.log(new Date());
+}, 1000*60*60*24)
