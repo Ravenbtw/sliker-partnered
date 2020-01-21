@@ -27,7 +27,7 @@ let slikerInterval = setInterval(() => {
     console.log(currentTime.getHours(), currentTime.getMinutes());
     console.log(no.length);
     console.log(randomInt);
-    if (body.data[0].broadcaster_type == 'partner') {
+    if (!error && body && body.data && body.data[0] && body.data[0].broadcaster_type == 'partner') {
       clearInterval(slikerInterval);
       client.post('statuses/update', {status: yes});
     } else if (body.data[0].broadcaster_type == 'affiliate' && currentTime.getHours() == 15 && currentTime.getMinutes() == 0) {
