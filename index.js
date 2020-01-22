@@ -27,14 +27,16 @@ let slikerInterval = setInterval(() => {
     console.log(currentTime.getHours(), currentTime.getMinutes());
     console.log(no.length);
     console.log(randomInt);
-    if (!error && body && body.data && body.data[0] && body.data[0].broadcaster_type == 'partner') {
-      clearInterval(slikerInterval);
-      client.post('statuses/update', {status: yes});
-    } else if (body.data[0].broadcaster_type == 'affiliate' && currentTime.getHours() == 15 && currentTime.getMinutes() == 0) {
-      if (randomInt == 0) {
-        client.post('statuses/update', {status: no[Math.floor(Math.random() * no.length)]});
-      } else {
-        client.post('statuses/update', {status: 'No.'});
+    if (!error && body && body.data && body.data[0] && body.data[0] && body.data[0].broadcaster_type) {
+      if (body.data[0].broadcaster_type == 'partner') {
+        clearInterval(slikerInterval);
+        client.post('statuses/update', {status: yes});
+      } else if (body.data[0].broadcaster_type == 'affiliate' && currentTime.getHours() == 15 && currentTime.getMinutes() == 0) {
+        if (randomInt == 0) {
+          client.post('statuses/update', {status: no[Math.floor(Math.random() * no.length)]});
+        } else {
+          client.post('statuses/update', {status: 'No.'});
+        }
       }
     }
   });
