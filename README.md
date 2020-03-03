@@ -6,6 +6,6 @@ This was the bot that was used to post on the [@SlikerPartnered](https://twitter
 
 - NodeJS
 
-# Running
+# Usage
 
-`node index.js` or `npm start`
+Insert the Twitter and Twitch API information inside of index.js, and then run `node index.js` or `npm start`
